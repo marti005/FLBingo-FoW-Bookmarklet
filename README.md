@@ -13,7 +13,8 @@ Bookmarklet to enable Fog of War mode on a Bingosync board targeted towards DELT
 ![Christmas Kawkaw (if you're seeing this text, the image failed to load)](https://cdn.discordapp.com/emojis/1556218387758321714.webp?size=96&animated=true)
 
 ## How to install and use
-1. Drag [this link](github.com/marti005/FLBingo-FoW-Bookmarklet/releases/latest) into your bookmarks bar
-2. Create or join a [Bingosync](bingosync.com) room
-3. Click on the bookmarklet icon you added earlier. There should be a popup indicating that the gamemode has been enabled successfully
-
+1. Download the [latest release](https://github.com/marti005/FLBingo-FoW-Bookmarklet/releases/latest) of the bookmarklet
+2. Right click on the bookmarks bar in your browser and select "Add bookmark" (or similar)
+3. Paste the content of the downloaded file into the URL field and set the name to whatever you want
+4. Create or join a [Bingosync](bingosync.com) room
+5. Click on the bookmarklet icon you added earlier. There should be a popup indicating that the gamemode has been enabled successfully
