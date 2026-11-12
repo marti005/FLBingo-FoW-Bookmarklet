@@ -423,10 +423,23 @@ javascript: (async function()
 		goal.textContent = text;
 	}
 
+	function setChatMessageText(chat_entry) {
+		const message_text = chat_entry.children[0].querySelector('.chat-message').textContent;
+		const message_color = chat_entry.children[0].querySelector('.chat-name')
+							  .className.match(/(?<=\s)\w+(?=player)/)[0];
+
+		// Starts with "/tc " or "/teamchat "
+		if (/^\/tc\s+|teamchat\s+/.test(message_text) && (message_color !== BOARD.dataset.fowColor || SPEC_MODE))
+			chat_entry.classList.add("hidden");
+		else if (chat_entry.classList.contains("hidden"))
+			chat_entry.classList.remove("hidden");
+	}
+
 	function updateFeedMessages() {
-		const chat_messages = Array.from(document.querySelectorAll(".new-card-entry, .goal-entry"));
+		let chat_messages = Array.from(document.querySelectorAll(".new-card-entry, .goal-entry"));
 		const last_board = chat_messages.findLastIndex(message => message.className === "new-card-entry");
 
+		// Goal messages
 		let messages_to_update = chat_messages.slice(Math.max(last_board, 0)).filter(message => message.className === "goal-entry");
 
 		for (const goal_message of messages_to_update) {
@@ -442,6 +455,13 @@ javascript: (async function()
 			} else {
 				setGoalMessageText(goal_message, ("#" + slot_number));
 			}
+		}
+
+		// Chat messages
+		chat_messages = Array.from(document.querySelectorAll('.chat-entry'))
+		
+		for (const chat_message of chat_messages) {
+			setChatMessageText(chat_message);
 		}
 	}
 
